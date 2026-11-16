@@ -1,12 +1,17 @@
 import { useEffect, useState } from "react";
+import { testimonials, notes } from "../data.js";
+import { config, asset } from "../config.js";
 
 const links = [
-  ["about", "about"],
-  ["experience", "experience"],
-  ["projects", "projects"],
-  ["skills", "skills"],
-  ["contact", "contact"],
-];
+  "about",
+  "experience",
+  "projects",
+  "architecture",
+  "skills",
+  testimonials.length ? "testimonials" : null,
+  notes.length ? "notes" : null,
+  "contact",
+].filter(Boolean);
 
 export default function Nav({ theme, onToggleTheme }) {
   const [open, setOpen] = useState(false);
@@ -24,18 +29,21 @@ export default function Nav({ theme, onToggleTheme }) {
       <a href="#top" className="nav-logo">
         <span className="accent">~/</span>rithik
       </a>
-      <nav className={`nav-links ${open ? "open" : ""}`}>
-        {links.map(([id, label]) => (
+      <nav className={`nav-links ${open ? "open" : ""}`} aria-label="Primary">
+        {links.map((id) => (
           <a key={id} href={`#${id}`} onClick={() => setOpen(false)}>
-            {label}
+            {id}
           </a>
         ))}
       </nav>
       <div className="nav-actions">
+        <a className="nav-cv" href={asset(config.cvFile)} download>
+          CV ↓
+        </a>
         <button
           className="icon-btn"
           onClick={onToggleTheme}
-          aria-label="Toggle light and dark theme"
+          aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
           title="Toggle theme"
         >
           {theme === "dark" ? "☀" : "☾"}

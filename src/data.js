@@ -68,6 +68,7 @@ export const projects = [
       "Freight, transport and warehouse management with real-time tracking and multi-tenant architecture.",
     tags: ["React", "Node.js", "PostgreSQL", "GCP", "Microservices"],
     metric: "50+ enterprise clients",
+    links: { github: "", demo: "" },
     details: [
       "Modules for Air, Ocean, Road, Warehousing, Customs Clearance, Finance, HR, CRM and Customer Self-Service.",
       "Real-time tracking and automated workflows across freight, transport and warehouse operations.",
@@ -82,6 +83,7 @@ export const projects = [
       "Billing, inventory, payments and full financial reporting, with card-swiping hardware integration.",
     tags: ["React", "Node.js", "PostgreSQL", "Android", "Payment APIs"],
     metric: "Billing to balance sheet",
+    links: { github: "", demo: "" },
     details: [
       "Billing, inventory and payment processing in one product for SMBs.",
       "AR/AP, General Ledger, Stock Integration, P&L, Balance Sheet and Cash Flow analysis.",
@@ -96,6 +98,7 @@ export const projects = [
       "A BERT-based NLP model that flags misleading information from unstructured text in real time.",
     tags: ["Python", "TensorFlow", "BERT", "NLP", "Flask"],
     metric: "94% accuracy",
+    links: { github: "", demo: "" },
     details: [
       "BERT-based classifier for detecting misleading information.",
       "Data-processing pipeline that cleans and prepares unstructured text.",
@@ -156,5 +159,62 @@ export const education = {
   certs: [
     "Android App Development - Naresh Information Technologies (2024)",
     "Java Full Stack Development - Besant Technologies (2024)",
+  ],
+};
+
+// Testimonials: add real quotes (with permission). The section stays hidden while empty.
+// Example: { quote: "Rithik delivered...", name: "Jane Doe", role: "Engineering Manager, Company" }
+export const testimonials = [];
+
+// Notes / blog: short write-ups. The section stays hidden while empty.
+// Example: { id: "multi-tenant", title: "Designing a multi-tenant SaaS",
+//            date: "Nov 2026", summary: "One line.", body: ["Paragraph 1", "Paragraph 2"] }
+export const notes = [];
+
+// Architecture explorer. Illustrative only: generic layers drawn from the CV,
+// with no client or proprietary detail. Edit freely.
+export const architecture = {
+  layers: [
+    {
+      id: "clients",
+      label: "Clients",
+      nodes: [
+        { id: "web", name: "React web app", info: "Role-based front-end modules for Air, Ocean, Road, Warehousing, Customs, Finance, HR, CRM and Customer Self-Service." },
+        { id: "android", name: "Android app", info: "Android app with embedded APIs that connects card-swiping machines for real-time transactions and cloud sync." },
+      ],
+    },
+    {
+      id: "api",
+      label: "API layer",
+      nodes: [
+        { id: "gateway", name: "REST APIs", info: "REST APIs serving the web and Android clients within a multi-tenant SaaS model." },
+      ],
+    },
+    {
+      id: "services",
+      label: "Microservices",
+      nodes: [
+        { id: "freight", name: "Freight", info: "Freight Management System handling 10,000+ transactions per day." },
+        { id: "transport", name: "Transport & Warehouse", info: "Transport and Warehouse Management Systems with real-time tracking and automated workflow optimization." },
+        { id: "customs", name: "Customs", info: "Customs Clearance module alongside the Air, Ocean and Road freight modules." },
+        { id: "finance", name: "Finance", info: "AR/AP, General Ledger, Stock Integration, P&L, Balance Sheet and Cash Flow modules." },
+        { id: "crm", name: "HR / CRM / Self-Service", info: "HR, CRM and Customer Self-Service modules for enterprise clients." },
+      ],
+    },
+    {
+      id: "data",
+      label: "Data",
+      nodes: [
+        { id: "pg", name: "PostgreSQL", info: "Relational data store behind the platform, which serves 50+ enterprise clients." },
+      ],
+    },
+    {
+      id: "infra",
+      label: "Infrastructure",
+      nodes: [
+        { id: "gcp", name: "GCP + CentOS", info: "Managed GCP infrastructure and CentOS servers." },
+        { id: "cicd", name: "CI/CD", info: "CI/CD pipelines with GitHub-based version control." },
+      ],
+    },
   ],
 };

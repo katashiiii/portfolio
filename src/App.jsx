@@ -4,8 +4,12 @@ import Hero from "./components/Hero.jsx";
 import About from "./components/About.jsx";
 import Experience from "./components/Experience.jsx";
 import Projects from "./components/Projects.jsx";
+import Architecture from "./components/Architecture.jsx";
 import Skills from "./components/Skills.jsx";
+import Testimonials from "./components/Testimonials.jsx";
+import Notes from "./components/Notes.jsx";
 import Contact from "./components/Contact.jsx";
+import AskCv from "./components/AskCv.jsx";
 
 function getInitialTheme() {
   try {
@@ -41,17 +45,24 @@ export default function App() {
 
   return (
     <>
+      <a className="skip" href="#main">
+        Skip to content
+      </a>
       <div className="progress" style={{ width: `${progress}%` }} />
       <div className="bg-grid" aria-hidden="true" />
       <Nav theme={theme} onToggleTheme={() => setTheme((t) => (t === "dark" ? "light" : "dark"))} />
-      <main>
+      <main id="main">
         <Hero />
         <About />
         <Experience />
         <Projects />
+        <Architecture />
         <Skills />
+        <Testimonials />
+        <Notes />
         <Contact />
       </main>
+      <AskCv />
     </>
   );
 }

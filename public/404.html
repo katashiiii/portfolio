@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 | Rithik Marian</title>
+    <meta name="robots" content="noindex" />
+    <style>
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background: #0a0e14;
+        color: #d6deeb;
+        font-family: ui-monospace, "JetBrains Mono", Menlo, monospace;
+        padding: 24px;
+      }
+      .box {
+        max-width: 520px;
+        border: 1px solid #1f2a3c;
+        background: #111927;
+        border-radius: 12px;
+        padding: 28px;
+      }
+      .g { color: #3ddc97; }
+      .m { color: #8392a8; }
+      a {
+        display: inline-block;
+        margin-top: 18px;
+        padding: 10px 18px;
+        border: 1px solid #3ddc97;
+        color: #3ddc97;
+        border-radius: 8px;
+        text-decoration: none;
+      }
+      a:hover { background: rgba(61, 220, 151, 0.18); }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <p><span class="g">$</span> cd <span id="p">/this-page</span></p>
+      <p class="m">bash: cd: no such file or directory (404)</p>
+      <p>That page doesn't exist, but the portfolio does.</p>
+      <a id="home" href="/">← Back to home</a>
+    </div>
+    <script>
+      // If your site lives at https://user.github.io/REPO/ (a project site), put
+      // the repo name here so the button goes to the right place. Leave empty for
+      // a user site (repo named user.github.io) or a custom domain.
+      var REPO = "portfolio";
+      document.getElementById("p").textContent = location.pathname;
+      document.getElementById("home").href = REPO ? "/" + REPO + "/" : "/";
+    </script>
+  </body>
+</html>

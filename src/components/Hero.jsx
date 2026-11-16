@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { profile } from "../data.js";
+import { config, asset } from "../config.js";
 import Terminal from "./Terminal.jsx";
 
 function useTypewriter(words, speed = 55, pause = 1600) {
@@ -40,7 +41,7 @@ export default function Hero() {
         <h1>
           Hi, I'm <span className="grad">{profile.name}</span>.
         </h1>
-        <p className="typed">
+        <p className="typed" aria-label={profile.roles.join(", ")}>
           <span className="accent">&gt;</span> {typed}
           <span className="caret" />
         </p>
@@ -49,7 +50,10 @@ export default function Hero() {
           <a className="btn primary" href="#projects">
             View projects
           </a>
-          <a className="btn" href={`mailto:${profile.email}`}>
+          <a className="btn" href={asset(config.cvFile)} download>
+            Download CV ↓
+          </a>
+          <a className="btn ghost" href={`mailto:${profile.email}`}>
             Hire me
           </a>
           <a className="btn ghost" href={profile.github} target="_blank" rel="noreferrer">

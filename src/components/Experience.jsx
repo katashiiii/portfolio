@@ -10,7 +10,7 @@ export default function Experience() {
     <section id="experience" className="section">
       <Reveal>
         <h2 className="section-title">
-          <span className="accent">02.</span> Experience
+          Experience
         </h2>
       </Reveal>
       <Reveal className="exp">

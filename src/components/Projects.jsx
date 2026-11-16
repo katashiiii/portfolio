@@ -1,10 +1,14 @@
 import { useState } from "react";
 import { projects } from "../data.js";
+import { config } from "../config.js";
 import Reveal from "./Reveal.jsx";
+import FakeNewsDemo from "./FakeNewsDemo.jsx";
 
 function ProjectCard({ project }) {
   const [open, setOpen] = useState(false);
   const panelId = `proj-${project.id}`;
+  const { github, demo } = project.links || {};
+  const hasLiveDemo = project.id === "fakenews" && !!config.fakeNewsApi;
 
   return (
     <article className={`card ${open ? "open" : ""}`}>
@@ -27,14 +31,31 @@ function ProjectCard({ project }) {
           ))}
         </ul>
       </div>
-      <button
-        className="link-btn"
-        onClick={() => setOpen((o) => !o)}
-        aria-expanded={open}
-        aria-controls={panelId}
-      >
-        {open ? "− Hide details" : "+ Case study"}
-      </button>
+      <div className="card-actions">
+        <button
+          className="link-btn"
+          onClick={() => setOpen((o) => !o)}
+          aria-expanded={open}
+          aria-controls={panelId}
+        >
+          {open ? "− Hide details" : "+ Case study"}
+        </button>
+        {github && (
+          <a className="link-btn" href={github} target="_blank" rel="noreferrer">
+            GitHub ↗
+          </a>
+        )}
+        {demo && (
+          <a className="link-btn" href={demo} target="_blank" rel="noreferrer">
+            Live demo ↗
+          </a>
+        )}
+        {hasLiveDemo && (
+          <a className="link-btn" href="#demo">
+            Try it ↓
+          </a>
+        )}
+      </div>
     </article>
   );
 }
@@ -43,9 +64,7 @@ export default function Projects() {
   return (
     <section id="projects" className="section">
       <Reveal>
-        <h2 className="section-title">
-          <span className="accent">03.</span> Projects
-        </h2>
+        <h2 className="section-title">Projects</h2>
       </Reveal>
       <div className="cards">
         {projects.map((p, i) => (
@@ -54,6 +73,7 @@ export default function Projects() {
           </Reveal>
         ))}
       </div>
+      <FakeNewsDemo />
     </section>
   );
 }

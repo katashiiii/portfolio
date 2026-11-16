@@ -1,0 +1,7 @@
+flask>=3.0
+flask-cors>=4.0
+gunicorn>=22.0
+# add your model stack, e.g.:
+# transformers
+# torch
+# tensorflow

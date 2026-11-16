@@ -12,7 +12,7 @@ export default function Skills() {
     <section id="skills" className="section">
       <Reveal>
         <h2 className="section-title">
-          <span className="accent">04.</span> Skills
+          Skills
         </h2>
       </Reveal>
       <Reveal className="chips" >

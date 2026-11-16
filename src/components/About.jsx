@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { stats, education } from "../data.js";
+import { stats, education, profile } from "../data.js";
+import { config, asset } from "../config.js";
 import Reveal from "./Reveal.jsx";
 
 function Counter({ value, suffix }) {
@@ -54,7 +55,7 @@ export default function About() {
     <section id="about" className="section">
       <Reveal>
         <h2 className="section-title">
-          <span className="accent">01.</span> About
+          About
         </h2>
       </Reveal>
       <div className="about-grid">
@@ -83,7 +84,31 @@ export default function About() {
             </ul>
           </div>
         </Reveal>
-        <div className="stats">
+        <div className="about-side">
+          <Reveal className="avatar-wrap">
+            {config.photo ? (
+              <img
+                className="avatar"
+                src={asset(config.photo)}
+                alt={`Portrait of ${profile.name}`}
+                width="160"
+                height="160"
+                loading="lazy"
+              />
+            ) : (
+              <div className="avatar initials" role="img" aria-label={`${profile.name} avatar`}>
+                {profile.name
+                  .split(" ")
+                  .map((w) => w[0])
+                  .join("")}
+              </div>
+            )}
+            <div>
+              <strong>{profile.name}</strong>
+              <div className="muted mono avatar-sub">{profile.location}</div>
+            </div>
+          </Reveal>
+          <div className="stats">
           {stats.map((s, i) => (
             <Reveal key={s.label} delay={i * 90} className="stat">
               <div className="stat-value">
@@ -92,6 +117,7 @@ export default function About() {
               <div className="stat-label">{s.label}</div>
             </Reveal>
           ))}
+          </div>
         </div>
       </div>
     </section>
